@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LimpiaYa - Campañas Comunitarias</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f1fff3;
+color:#222;
+}
+
+
+/* MENU */
+
+header{
+background:#1b5e20;
+padding:20px;
+display:flex;
+justify-content:flex-end;
+gap:25px;
+}
+
+header a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+
+/* PORTADA */
+
+.hero{
+
+height:430px;
+background:
+linear-gradient(
+135deg,
+#34a853,
+#0b8043
+);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+color:white;
+
+}
+
+
+.logo{
+
+font-size:70px;
+font-weight:900;
+margin-bottom:25px;
+
+}
+
+
+.logo span:nth-child(1){
+color:white;
+}
+
+.logo span:nth-child(2){
+color:#d9ffd9;
+}
+
+.logo span:nth-child(3){
+color:white;
+}
+
+.logo span:nth-child(4){
+color:#ffd54f;
+}
+
+
+
+.search{
+
+background:white;
+padding:15px 25px;
+border-radius:50px;
+
+width:90%;
+max-width:650px;
+
+}
+
+
+
+.search input{
+
+width:100%;
+border:none;
+outline:none;
+font-size:17px;
+
+}
+
+
+
+
+button{
+
+border:none;
+padding:12px 22px;
+border-radius:25px;
+cursor:pointer;
+font-weight:bold;
+margin:8px;
+
+}
+
+
+.btn{
+
+background:#34a853;
+color:white;
+
+}
+
+
+.btn:hover{
+
+background:#237b3b;
+
+}
+
+
+
+/* SECCIONES */
+
+
+.section{
+
+max-width:1100px;
+margin:50px auto;
+padding:20px;
+
+}
+
+
+h2{
+
+color:#2e7d32;
+margin-bottom:20px;
+
+}
+
+
+
+/* TARJETAS */
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:18px;
+
+margin-bottom:20px;
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.12);
+
+}
+
+
+.campana h3{
+
+color:#1b5e20;
+
+}
+
+
+
+/* FORMULARIOS */
+
+
+.form-group{
+
+margin-bottom:15px;
+
+}
+
+
+input{
+
+width:100%;
+padding:13px;
+
+border:1px solid #ccc;
+border-radius:10px;
+
+}
+
+
+
+/* PUBLICIDAD */
+
+
+.publicidad{
+
+height:180px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:#fafafa;
+
+border:3px dashed #aaa;
+
+color:#777;
+
+font-size:22px;
+
+}
+
+
+
+/* ESTADISTICAS */
+
+
+.stats{
+
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+
+}
+
+
+.stat{
+
+flex:1;
+
+background:#2e7d32;
+
+color:white;
+
+padding:25px;
+
+text-align:center;
+
+border-radius:15px;
+
+}
+
+
+.stat h3{
+
+font-size:35px;
+
+}
+
+
+
+/* MENSAJE */
+
+.exito{
+
+background:#c8f7c5;
+
+color:#1b5e20;
+
+padding:15px;
+
+border-radius:10px;
+
+display:none;
+
+}
+
+
+
+/* FOOTER */
+
+
+footer{
+
+background:#1b5e20;
+
+color:white;
+
+text-align:center;
+
+padding:30px;
+
+}
+
+
+
+
+/* PANTALLA DE ACCESO */
+#pantallaAcceso{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:linear-gradient(135deg,#1b5e20,#34a853);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+.login-card{
+    width:100%;
+    max-width:430px;
+    background:white;
+    padding:35px;
+    border-radius:22px;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    text-align:center;
+}
+.login-card h1{
+    color:#1b5e20;
+    margin-bottom:10px;
+}
+.login-card p{
+    color:#555;
+    margin-bottom:20px;
+}
+.login-card input{
+    margin:8px 0;
+}
+.btn-admin{
+    background:#1b5e20;
+    color:white;
+}
+.btn-normal{
+    background:#34a853;
+    color:white;
+}
+.btn-salir{
+    background:#e53935;
+    color:white;
+}
+#mensajeAcceso{
+    min-height:24px;
+    color:#c62828;
+    font-weight:bold;
+    margin-top:8px;
+}
+.modo-usuario #crear,
+.modo-usuario #voluntarios,
+.modo-usuario #estadisticas,
+.modo-usuario #btnCrearHeader,
+.modo-usuario #btnVoluntariosHeader,
+.modo-usuario .admin-only{
+    display:none !important;
+}
+.modo-usuario #campanas{
+    display:block;
+}
+
+
+.modo-usuario #estadisticas,
+.modo-usuario #crear,
+.modo-usuario .publicidad,
+.modo-usuario .hero .search,
+.modo-usuario .hero > div:last-child{
+    display:none !important;
+}
+.modo-usuario #voluntarios{
+    display:block !important;
+}
+
+
+.admin-only-info{
+    background:#e8f5e9;
+    border-left:5px solid #2e7d32;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<!-- PANTALLA DE ACCESO -->
+<div id="pantallaAcceso">
+    <div class="login-card">
+        <div class="logo" style="font-size:48px;color:#1b5e20;margin-bottom:10px;">
+            Limpia<span style="color:#ffd54f;">YA+</span>
+        </div>
+        <h1>🌱 Bienvenido</h1>
+        <p>Elige cómo quieres ingresar a LimpiaYa.</p>
+
+        <button class="btn btn-normal" style="width:100%;"
+                onclick="entrarComoUsuario()">
+            👤 Ingresar como usuario
+        </button>
+
+        <hr style="margin:22px 0;border:none;border-top:1px solid #ddd;">
+
+        <p style="margin-bottom:8px;">🔐 Acceso de administrador</p>
+        <input id="codigoAdmin" type="password"
+               placeholder="Escribe el código de administrador"
+               onkeydown="if(event.key==='Enter') ingresarComoAdmin()">
+        <button class="btn btn-admin" style="width:100%;"
+                onclick="ingresarComoAdmin()">
+            🔑 Ingresar como admin
+        </button>
+
+        <div id="mensajeAcceso"></div>
+    </div>
+</div>
+
+
+
+<header>
+
+<a href="#campanas">Campañas</a>
+
+<a id="btnCrearHeader" class="admin-only" href="#crear">Crear</a>
+
+<a id="btnVoluntariosHeader" class="admin-only" href="#voluntarios">Voluntarios</a>
+
+<button class="btn btn-salir" onclick="cerrarSesion()" style="margin:0;">🚪 Salir</button>
+</header>
+
+
+
+<section class="hero">
+
+
+<div class="logo">
+
+<span>L</span><span>impia</span><span>Y</span><span>A+</span>
+
+</div>
+
+
+<div class="search">
+
+<input
+id="busqueda"
+placeholder="Buscar campañas..."
+onkeyup="buscar()">
+
+</div>
+
+
+<div>
+
+<button class="btn"
+onclick="ir('campanas')">
+Ver campañas
+</button>
+
+
+<button class="btn"
+onclick="ir('crear')">
+Crear campaña
+</button>
+
+
+</div>
+
+
+</section>
+
+<section class="section">
+
+<div class="card publicidad">
+
+📢 Espacio para publicidad
+
+</div>
+
+</section>
+
+
+
+
+<section id="estadisticas" class="section">
+
+
+<h2>📊 Estadísticas</h2>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<h3 id="totalCampanas">
+0
+</h3>
+
+Campañas
+
+</div>
+
+
+
+<div class="stat">
+
+<h3 id="totalVoluntarios">
+0
+</h3>
+
+Voluntarios
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<div id="modoUsuarioInfo" class="card" style="display:none;text-align:center;background:#e8f5e9;">👤 <strong>Modo usuario:</strong> aquí puedes ver las campañas disponibles y luego inscribirte como voluntario.</div>
+<section id="campanas" class="section">
+
+
+<h2>🌱 Campañas disponibles</h2>
+
+
+<button class="btn" onclick="ordenarCampanas()">
+
+📅 Ordenar por fecha
+
+</button>
+
+
+
+<div id="listaCampanas">
+
+
+<div class="card campana">
+
+
+<h3>Limpieza del Río Principal</h3>
+
+
+<p>📅 Fecha: 15/07/2026</p>
+
+
+<p>📍 Lugar: Zona Norte</p>
+
+
+<p>🌱 Categoría: Río</p>
+
+
+<p>
+Estado:
+<span class="estado">
+Pendiente
+</span>
+</p>
+
+
+<button class="btn btn-inscripcion" onclick="inscribirseEnCampana(this)">🙋 Inscribirme en esta campaña</button>
+
+<button class="btn admin-only" onclick="cambiarEstado(this)">
+Cambiar estado
+</button>
+
+
+</div>
+
+
+
+<div class="card campana">
+
+
+<h3>Recuperación del Parque Central</h3>
+
+
+<p>📅 Fecha: 22/07/2026</p>
+
+
+<p>📍 Lugar: Plaza Principal</p>
+
+
+<p>🌱 Categoría: Parque</p>
+
+
+<p>
+Estado:
+<span class="estado">
+Pendiente
+</span>
+</p>
+
+
+<button class="btn btn-inscripcion" onclick="inscribirseEnCampana(this)">🙋 Inscribirme en esta campaña</button>
+
+<button class="btn admin-only" onclick="cambiarEstado(this)">
+Cambiar estado
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="crear" class="section">
+
+
+<h2>➕ Crear nueva campaña</h2>
+
+
+<div class="card">
+
+
+<div class="form-group">
+
+<input id="titulo"
+placeholder="Nombre de campaña">
+
+</div>
+
+
+
+<div class="form-group">
+
+<input id="lugar"
+placeholder="Ubicación">
+
+</div>
+
+
+
+<div class="form-group">
+
+<input id="fecha"
+type="date">
+
+</div>
+
+
+
+<div class="form-group">
+
+<input id="categoria"
+placeholder="Categoría (Río, Parque, Playa...)">
+
+</div>
+
+
+
+<div class="form-group">
+
+<input id="responsable"
+placeholder="Responsable">
+
+</div>
+
+
+
+<div class="form-group">
+
+<input id="meta"
+type="number"
+placeholder="Voluntarios necesarios">
+
+</div>
+
+
+
+
+<button class="btn"
+onclick="crearCampana()">
+
+Crear campaña
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section id="voluntarios" class="section">
+
+
+<h2>🙋 Inscripción de voluntarios</h2>
+
+
+
+<div class="card">
+
+<div class="admin-only admin-only-info">
+<strong>🔐 Panel de administrador:</strong>
+Las inscripciones que hagan los usuarios se guardan automáticamente en este navegador y aparecen aquí.
+</div>
+
+<div id="mensaje"
+class="exito">
+
+</div>
+
+
+
+<div class="form-group">
+
+<input
+id="nombreVoluntario"
+placeholder="Nombre completo">
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<input
+id="correoVoluntario"
+type="email"
+placeholder="Correo electrónico">
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<input
+id="telefonoVoluntario"
+placeholder="Teléfono">
+
+<div class="form-group">
+    <select id="campanaVoluntario" style="width:100%;padding:13px;border:1px solid #ccc;border-radius:10px;">
+        <option value="">Selecciona la campaña</option>
+    </select>
+</div>
+
+
+</div>
+
+
+
+<button class="btn"
+onclick="registrarVoluntario()">
+
+✅ Inscribirme
+
+</button>
+
+
+
+<h3 class="admin-only" style="margin-top:25px">
+
+📥 Inscripciones recibidas
+
+</h3>
+
+<p class="admin-only" style="margin-bottom:15px;color:#555;">
+Aquí aparecen automáticamente las inscripciones realizadas por los usuarios.
+</p>
+
+<h3 style="margin-top:25px">
+
+Voluntarios inscritos:
+
+</h3>
+
+
+
+<div id="listaVoluntarios">
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+🌱 LimpiaYa © 2026  
+<br>
+Juntos limpiamos nuestra comunidad
+
+</footer>
+<script>
+
+
+
+// CONTROL DE ACCESO
+const CODIGO_ADMIN = "limpiaya+";
+let modoActual = "";
+
+function entrarComoUsuario(){
+    modoActual = "usuario";
+    document.body.classList.add("modo-usuario");
+    document.getElementById("pantallaAcceso").style.display = "none";
+    actualizarVista();
+}
+
+function ingresarComoAdmin(){
+    const codigo = document.getElementById("codigoAdmin").value.trim();
+
+    if(codigo === CODIGO_ADMIN){
+        modoActual = "admin";
+        document.body.classList.remove("modo-usuario");
+        document.getElementById("pantallaAcceso").style.display = "none";
+        document.getElementById("codigoAdmin").value = "";
+        actualizarVista();
+        mostrarVoluntarios();
+        actualizarSelectorCampanas();
+        alert("🔐 Acceso de administrador correcto.");
+    }else{
+        document.getElementById("mensajeAcceso").innerText =
+            "❌ Código incorrecto. Inténtalo nuevamente.";
+    }
+}
+
+function cerrarSesion(){
+    modoActual = "";
+    document.body.classList.remove("modo-usuario");
+    document.getElementById("pantallaAcceso").style.display = "flex";
+    document.getElementById("codigoAdmin").value = "";
+    document.getElementById("mensajeAcceso").innerText = "";
+}
+
+function actualizarVista(){
+    const esAdmin = modoActual === "admin";
+    const info = document.getElementById("modoUsuarioInfo");
+    if(info) info.style.display = esAdmin ? "none" : "block";
+
+    document.querySelectorAll(".admin-only").forEach(el=>{
+        el.style.display = esAdmin ? "" : "none";
+    });
+
+    // En modo usuario solo se muestra la zona pública de campañas.
+    if(!esAdmin){
+        document.querySelectorAll(".admin-only").forEach(el=>{
+            el.style.display = "none";
+        });
+    }
+}
+
+
+// IR A SECCION
+
+function ir(id){
+
+document
+.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+
+
+// BUSCAR CAMPAÑAS
+
+function buscar(){
+
+let texto =
+document
+.getElementById("busqueda")
+.value
+.toLowerCase();
+
+
+document
+.querySelectorAll(".campana")
+.forEach(c=>{
+
+
+let contenido =
+c.innerText.toLowerCase();
+
+
+c.style.display =
+contenido.includes(texto)
+?"block"
+:"none";
+
+
+});
+
+
+}
+
+
+
+
+
+
+// CREAR CAMPAÑA
+
+function crearCampana(){
+
+if(modoActual !== "admin"){ alert("Debes ingresar como administrador para crear campañas."); return; }
+
+
+
+let titulo =
+document.getElementById("titulo").value.trim();
+
+
+let lugar =
+document.getElementById("lugar").value.trim();
+
+
+let fecha =
+document.getElementById("fecha").value;
+
+
+let categoria =
+document.getElementById("categoria").value.trim();
+
+
+let responsable =
+document.getElementById("responsable").value.trim();
+
+
+let meta =
+document.getElementById("meta").value;
+
+
+
+if(!titulo || !lugar || !fecha){
+
+alert("Completa los datos principales");
+
+return;
+
+}
+
+
+
+let campanas =
+JSON.parse(localStorage.getItem("campanas"))
+|| [];
+
+
+
+let nuevaCampana = {
+
+
+titulo,
+lugar,
+fecha,
+categoria,
+responsable,
+meta,
+estado:"Pendiente"
+
+
+};
+
+
+
+campanas.push(nuevaCampana);
+
+
+localStorage.setItem(
+"campanas",
+JSON.stringify(campanas)
+);
+
+
+
+mostrarCampanas();
+
+
+
+alert("🌱 Campaña creada correctamente");
+
+
+
+limpiarFormulario();
+
+
+}
+
+
+
+
+
+
+function mostrarCampanas(){
+
+
+let lista =
+document.getElementById("listaCampanas");
+
+
+let campanas =
+JSON.parse(localStorage.getItem("campanas"))
+|| [];
+
+
+
+campanas.forEach(c=>{
+
+
+let existe =
+Array.from(lista.children)
+.some(x=>x.innerHTML.includes(c.titulo));
+
+
+
+if(!existe){
+
+
+let div =
+document.createElement("div");
+
+
+div.className="card campana";
+
+
+div.innerHTML=`
+
+<h3>${c.titulo}</h3>
+
+<p>📅 Fecha: ${c.fecha}</p>
+
+<p>📍 Lugar: ${c.lugar}</p>
+
+<p>🌱 Categoría: ${c.categoria}</p>
+
+<p>👤 Responsable: ${c.responsable}</p>
+
+<p>🙋 Meta: ${c.meta} voluntarios</p>
+
+
+<p>
+Estado:
+
+<span class="estado">
+
+${c.estado}
+
+</span>
+
+</p>
+
+
+
+<button class="btn"
+onclick="cambiarEstado(this)">
+
+Cambiar estado
+
+</button>
+
+
+<button class="btn"
+onclick="eliminarCampana(this)">
+
+Eliminar
+
+</button>
+
+
+`;
+
+
+lista.appendChild(div);
+
+
+}
+
+
+});
+
+
+
+actualizarDatos();
+actualizarSelectorCampanas();
+
+}
+
+
+
+
+
+
+
+
+// CAMBIAR ESTADO
+
+function cambiarEstado(btn){
+
+if(modoActual !== "admin"){ alert("Solo el administrador puede cambiar el estado."); return; }
+
+
+
+let estado =
+btn.parentElement
+.querySelector(".estado");
+
+
+if(estado.innerText=="Pendiente"){
+
+estado.innerText="En progreso";
+
+}
+
+else if(estado.innerText=="En progreso"){
+
+estado.innerText="Finalizada";
+
+}
+
+else{
+
+estado.innerText="Pendiente";
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+// ELIMINAR CAMPANA
+
+
+function eliminarCampana(btn){
+
+if(modoActual !== "admin"){ alert("Solo el administrador puede eliminar campañas."); return; }
+
+
+
+if(confirm("¿Eliminar campaña?")){
+
+
+btn.parentElement.remove();
+
+
+actualizarDatos();
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+// ORDENAR
+
+function ordenarCampanas(){
+
+
+let lista =
+document.getElementById("listaCampanas");
+
+
+let tarjetas =
+Array.from(
+lista.querySelectorAll(".campana")
+);
+
+
+
+tarjetas.sort((a,b)=>{
+
+
+return a.innerText
+.localeCompare(
+b.innerText
+);
+
+
+});
+
+
+
+tarjetas.forEach(t=>{
+
+lista.appendChild(t);
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+function actualizarSelectorCampanas(){
+    const select = document.getElementById("campanaVoluntario");
+    if(!select) return;
+
+    const actual = select.value;
+    const nombres = new Set();
+    const opciones = [];
+
+    // Campañas que aparecen actualmente en pantalla.
+    document.querySelectorAll("#listaCampanas .campana").forEach(tarjeta=>{
+        const titulo = tarjeta.querySelector("h3")?.innerText.trim();
+        const fechaTexto = tarjeta.querySelector("p")?.innerText.replace("📅 Fecha:","").trim() || "";
+        if(titulo && !nombres.has(titulo)){
+            nombres.add(titulo);
+            opciones.push({titulo, fecha:fechaTexto});
+        }
+    });
+
+    // Campañas guardadas en localStorage.
+    const guardadas = JSON.parse(localStorage.getItem("campanas")) || [];
+    guardadas.forEach(c=>{
+        if(c.titulo && !nombres.has(c.titulo)){
+            nombres.add(c.titulo);
+            opciones.push({titulo:c.titulo, fecha:c.fecha || ""});
+        }
+    });
+
+    select.innerHTML = '<option value="">Selecciona la campaña</option>';
+
+    opciones.forEach(c=>{
+        const option = document.createElement("option");
+        option.value = c.titulo;
+        option.textContent = c.fecha
+            ? `${c.titulo} — ${c.fecha}`
+            : c.titulo;
+        select.appendChild(option);
+    });
+
+    if(actual && nombres.has(actual)){
+        select.value = actual;
+    }
+}
+
+function inscribirseEnCampana(btn){
+    const tarjeta = btn.parentElement;
+    const titulo = tarjeta.querySelector("h3")?.innerText || "";
+
+    if(modoActual !== "usuario"){
+        alert("Ingresa como usuario para inscribirte en una campaña.");
+        return;
+    }
+
+    const select = document.getElementById("campanaVoluntario");
+    if(select){
+        actualizarSelectorCampanas();
+        select.value = titulo;
+    }
+
+    document.getElementById("voluntarios").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+// VOLUNTARIOS
+
+
+function registrarVoluntario(){
+
+if(modoActual !== "usuario"){
+    alert("Debes ingresar como usuario para inscribirte.");
+    return;
+}
+
+let nombre =
+document
+.getElementById("nombreVoluntario")
+.value
+.trim();
+
+
+
+let correo =
+document
+.getElementById("correoVoluntario")
+.value
+.trim();
+
+
+
+let telefono =
+document
+.getElementById("telefonoVoluntario")
+.value
+.trim();
+
+
+
+let campana = document.getElementById("campanaVoluntario")?.value || "";
+
+if(!nombre || !correo || !campana){
+
+alert("Completa tus datos y selecciona una campaña.");
+
+return;
+
+}
+
+
+
+
+let voluntarios =
+JSON.parse(
+localStorage.getItem("voluntarios")
+)
+|| [];
+
+
+
+
+
+let existe =
+voluntarios.some(
+v=>v.correo==correo
+);
+
+
+
+if(existe){
+
+
+mostrarMensaje(
+"✅ Ya estás inscrito como voluntario"
+);
+
+
+return;
+
+
+}
+
+
+
+
+
+
+voluntarios.push({
+
+nombre,
+correo,
+telefono,
+    campana
+
+});
+
+
+
+localStorage.setItem(
+"voluntarios",
+JSON.stringify(voluntarios)
+);
+
+
+
+
+mostrarVoluntarios();
+
+
+
+mostrarMensaje(
+"🎉 ¡Ya estás inscrito! Gracias por unirte"
+);
+
+
+
+
+}
+
+
+
+
+
+function mostrarVoluntarios(){
+
+
+
+let lista =
+document.getElementById(
+"listaVoluntarios"
+);
+
+
+
+lista.innerHTML="";
+
+
+
+let voluntarios =
+JSON.parse(
+localStorage.getItem("voluntarios")
+)
+|| [];
+
+
+
+voluntarios.forEach(v=>{
+
+
+let div =
+document.createElement("div");
+
+
+div.className="card";
+
+
+div.innerHTML=
+
+`
+
+<strong>🙋 ${v.nombre}</strong>
+
+<br>
+
+📧 ${v.correo}
+
+<br>
+
+📱 ${v.telefono}<br>
+
+🌱 Campaña: <strong>${v.campana || "No especificada"}</strong>
+
+`;
+
+
+
+lista.appendChild(div);
+
+
+
+});
+
+
+
+actualizarDatos();
+
+
+
+}
+
+
+
+
+
+
+function mostrarMensaje(texto){
+
+
+let caja =
+document.getElementById("mensaje");
+
+
+caja.style.display="block";
+
+
+caja.innerHTML=texto;
+
+
+setTimeout(()=>{
+
+caja.style.display="none";
+
+},4000);
+
+
+}
+
+
+
+
+
+
+
+function limpiarFormulario(){
+
+
+titulo.value="";
+lugar.value="";
+fecha.value="";
+categoria.value="";
+responsable.value="";
+meta.value="";
+
+
+}
+
+
+
+
+
+
+
+
+function actualizarDatos(){
+
+
+document
+.getElementById("totalCampanas")
+.innerText =
+document
+.querySelectorAll(".campana")
+.length;
+
+
+
+let voluntarios =
+JSON.parse(
+localStorage.getItem("voluntarios")
+)
+|| [];
+
+
+
+document
+.getElementById("totalVoluntarios")
+.innerText =
+voluntarios.length;
+
+
+}
+
+
+
+
+
+mostrarCampanas();
+
+mostrarVoluntarios();
+
+
+</script>
